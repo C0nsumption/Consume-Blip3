@@ -36,7 +36,7 @@ Follow the steps below to set up the project:
     venv\Scripts\activate  # For Windows
     ```
 
-3. **Install Git LFS:**
+3. **Initialize with Git LFS (make sure to have installed. Ask ChatGPT.):**
     ```sh
     git lfs install
     ```
