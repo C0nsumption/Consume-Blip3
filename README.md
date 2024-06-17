@@ -20,7 +20,7 @@ XGEN (BLIP3) is designed to provide efficient and accurate (lol to a degree) aut
 
 ## Setup
 (TESTED ON UBUNTU 22.04 | CUDA 12.1 | Torch 2.3.1+cu121) <br>
-*For windows, lmk. I'll make a pull request.*
+*For windows, lmk. I'll make a pull request to actually test. but should work fine.*
 <br><br>
 Follow the steps below to set up the project:
 
@@ -29,23 +29,30 @@ Follow the steps below to set up the project:
     mkdir blip3 && cd blip3
     ```
 
-2. **Install Git LFS:**
+2. **Set Up a Virtual Environment:**
+    ```sh
+    python -m venv venv
+    source venv/bin/activate  # For Linux/Mac
+    venv\Scripts\activate  # For Windows
+    ```
+
+3. **Install Git LFS:**
     ```sh
     git lfs install
     ```
 
-3. **Clone the Model Repository:**
+4. **Clone the Model Repository:**
     ```sh
     git clone https://huggingface.co/Salesforce/xgen-mm-phi3-mini-instruct-r-v1
     ```
 
-4. **Install Dependencies:**
+5. **Install Dependencies:**
     ```sh
     pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu121
     pip install -r requirements.txt
     ```
 
-5. **Run Tests:**
+6. **Run Tests:**
     ```sh
     python test.py
     ```
