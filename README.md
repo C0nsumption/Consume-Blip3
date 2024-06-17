@@ -24,6 +24,8 @@ XGEN (BLIP3) is designed to provide efficient and accurate (lol to a degree) aut
 <br><br>
 Follow the steps below to set up the project:
 
+### Option 1: Manual Installation
+
 1. **Create and Navigate to Project Directory:**
     ```sh
     mkdir blip3 && cd blip3
@@ -57,9 +59,26 @@ Follow the steps below to set up the project:
     python test.py
     ```
 
+### Option 2: Using Setup Scripts
+
+#### Linux/Mac:
+1. **Download and Run the Shell Script:**
+    ```sh
+    wget https://raw.githubusercontent.com/C0nsumption/Consume-Blip3/main/setup.sh
+    chmod +x setup.sh
+    ./setup.sh
+    ```
+
+#### Windows:
+1. **Download and Run the Batch Script:**
+    ```bat
+    wget https://raw.githubusercontent.com/C0nsumption/Consume-Blip3/main/setup.bat
+    setup.bat
+    ```
+
 ## Usage
 
-After setting up the environment, you can start using the BLIP3 autocaptioning tools. Detailed usage instructions and examples will be provided in a `docs` folder at some point.
+After setting up the environment, you can start using the BLIP3 autocaptioning tools. Detailed usage instructions and examples can be found in the [Usage Guide](docs/USAGE.md).
 
 ## Contributing
 
