@@ -1,4 +1,4 @@
-# Usage Guide
+### Usage Guide
 
 This guide provides detailed instructions on how to use the BLIP3 autocaptioning tools.
 
@@ -11,7 +11,7 @@ You can run the script on a single image or a directory containing multiple imag
 To analyze a single image, run the following command:
 
 ```sh
-python analyze.py path/to/image.jpg "Describe the image"
+python src/analyze.py path/to/image.jpg "Describe the image"
 ```
 
 ### Directory of Images
@@ -19,7 +19,7 @@ python analyze.py path/to/image.jpg "Describe the image"
 To analyze all images in a directory, run the following command:
 
 ```sh
-python analyze.py path/to/directory "Describe the image"
+python src/analyze.py path/to/directory "Describe the image"
 ```
 
 ### Saving Responses
@@ -27,7 +27,7 @@ python analyze.py path/to/directory "Describe the image"
 To save the AI's responses to text files, add the `--save_response` flag:
 
 ```sh
-python analyze.py path/to/image.jpg "Describe the image" --save_response
+python src/analyze.py path/to/image.jpg "Describe the image" --save_response
 ```
 
 ## Command Line Arguments
@@ -45,7 +45,7 @@ python analyze.py path/to/image.jpg "Describe the image" --save_response
 Command:
 
 ```sh
-python analyze.py example.jpg "Describe the image"
+python src/analyze.py example.jpg "Describe the image"
 ```
 
 Output:
@@ -59,7 +59,7 @@ Output:
 Command:
 
 ```sh
-python analyze.py images/ "Describe the images" --save_response
+python src/analyze.py images/ "Describe the images" --save_response
 ```
 
 Output:

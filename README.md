@@ -64,18 +64,17 @@ Follow the steps below to set up the project:
 #### Linux/Mac:
 1. **Download and Run the Shell Script:**
     ```sh
-    wget https://raw.githubusercontent.com/C0nsumption/Consume-Blip3/main/setup.sh
+    wget https://raw.githubusercontent.com/C0nsumption/Consume-Blip3/main/setup/setup.sh
     chmod +x setup.sh
     ./setup.sh
     ```
 
 #### Windows:
 1. **Download and Run the Batch Script:**
-    ```bat
-    wget https://raw.githubusercontent.com/C0nsumption/Consume-Blip3/main/setup.bat
+   ```bat
+    curl -o setup.bat https://raw.githubusercontent.com/C0nsumption/Consume-Blip3/main/setup/setup.bat
     setup.bat
-    ```
-
+   ```
 ## Usage
 
 After setting up the environment, you can start using the BLIP3 autocaptioning tools. Detailed usage instructions and examples can be found in the [Usage Guide](docs/USAGE.md).

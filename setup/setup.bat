@@ -2,8 +2,8 @@
 setlocal
 
 echo Creating and navigating to project directory...
-mkdir blip3
-cd blip3
+git clone https://github.com/C0nsumption/Consume-Blip3.git
+cd Consume-Blip3
 
 echo Setting up a virtual environment...
 python -m venv venv
@@ -21,6 +21,6 @@ pip install torch torchvision torchaudio --extra-index-url https://download.pyto
 pip install -r requirements.txt
 
 echo Running tests...
-python test.py
+python test\test.py
 
 echo Setup complete!
