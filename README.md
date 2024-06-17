@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="image.png" alt="Consume-Blip3 Logo" width="500"/>
+  <img src="assets/image.png" alt="Consume-Blip3 Logo" width="500"/>
 </p>
 
 # BLIP3 Autocaptioning Tools
@@ -98,6 +98,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 Feel free to reach out if you have any questions or need further assistance! But give me time, very busy: 
 <br>
-ａｃｃｅｌｅｒａｔｉｎｇ 🫡
+ａｃｃｅｌｅｒａｔｉｎｇ 🫡 
 
 ---
