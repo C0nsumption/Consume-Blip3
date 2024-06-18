@@ -10,7 +10,7 @@ Welcome to this XGEN-MM(BLIP3) Autocaptioning Tools repository! This project set
 
 - [Introduction](#introduction)
 - [Setup](#setup)
-- [Usage](#usage)
+- [Usage](docs/USAGE.md)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -24,11 +24,30 @@ XGEN (BLIP3) is designed to provide efficient and accurate (lol to a degree) aut
 <br><br>
 Follow the steps below to set up the project:
 
-### Option 1: Manual Installation
+### Option 1: Using Setup Scripts
 
-1. **Create and Navigate to Project Directory:**
+#### Linux/Mac:
+1. **Download and Run the Shell Script:**
     ```sh
-    mkdir blip3 && cd blip3
+    wget https://raw.githubusercontent.com/C0nsumption/Consume-Blip3/main/setup/setup.sh
+    chmod +x setup.sh
+    ./setup.sh
+    ```
+
+#### Windows:
+1. **Download and Run the Batch Script:**
+   ```bat
+    curl -o setup.bat https://raw.githubusercontent.com/C0nsumption/Consume-Blip3/main/setup/setup.bat
+    setup.bat
+   ```
+### Option 2: Manual Installation
+<details>
+  <summary>Manual Installation</summary>
+
+1. **Clone this Repo and Navigate to the Project Directory:**
+    ```sh
+    git clone https://github.com/C0nsumption/Consume-Blip3.git
+    cd Consume-Blip3
     ```
 
 2. **Set Up a Virtual Environment:**
@@ -56,25 +75,11 @@ Follow the steps below to set up the project:
 
 6. **Run Tests:**
     ```sh
-    python test.py
+    python test/test.py
     ```
 
-### Option 2: Using Setup Scripts
+</details>
 
-#### Linux/Mac:
-1. **Download and Run the Shell Script:**
-    ```sh
-    wget https://raw.githubusercontent.com/C0nsumption/Consume-Blip3/main/setup/setup.sh
-    chmod +x setup.sh
-    ./setup.sh
-    ```
-
-#### Windows:
-1. **Download and Run the Batch Script:**
-   ```bat
-    curl -o setup.bat https://raw.githubusercontent.com/C0nsumption/Consume-Blip3/main/setup/setup.bat
-    setup.bat
-   ```
 ## Usage
 
 After setting up the environment, you can start using the BLIP3 autocaptioning tools. Detailed usage instructions and examples can be found in the [Usage Guide](docs/USAGE.md).
