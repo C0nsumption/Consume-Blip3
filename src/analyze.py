@@ -28,15 +28,14 @@ class ImageAnalyzer:
             f'\n<image>\n{prompt}\n\n'
         )
 
-    def __call__(self, image_path, query, max_new_tokens=768, num_beams=1):
-        raw_image = Image.open(image_path).convert('RGB')
-        inputs = self.image_processor([raw_image], return_tensors="pt", image_aspect_ratio='anyres')
+    def __call__(self, image, query, max_new_tokens=768, num_beams=1):
+        inputs = self.image_processor([image], return_tensors="pt", image_aspect_ratio='anyres')
         prompt = self.apply_prompt_template(query)
         language_inputs = self.tokenizer([prompt], return_tensors="pt")
         inputs.update(language_inputs)
         inputs = {name: tensor.cuda() for name, tensor in inputs.items()}
         
-        generated_text = self.model.generate(**inputs, image_size=[raw_image.size],
+        generated_text = self.model.generate(**inputs, image_size=[image.size],
                                              pad_token_id=self.tokenizer.pad_token_id,
                                              do_sample=False, max_new_tokens=max_new_tokens, top_p=None, num_beams=num_beams,
                                              stopping_criteria=[EosListStoppingCriteria()])
@@ -44,7 +43,8 @@ class ImageAnalyzer:
         return prediction
 
     def analyze_image(self, image_path, query, max_new_tokens=768, num_beams=1, save_response=False):
-        prediction = self.__call__(image_path, query, max_new_tokens, num_beams)
+        raw_image = Image.open(image_path).convert('RGB')
+        prediction = self.__call__(raw_image, query, max_new_tokens, num_beams)
         print(f"==> {os.path.basename(image_path)}: {prediction}")
 
         if save_response:
