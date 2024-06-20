@@ -1,35 +1,35 @@
 from transformers import AutoModelForVision2Seq, AutoTokenizer, AutoImageProcessor, StoppingCriteria
 import torch
-import requests
 from PIL import Image
 
-# define the prompt template
+# Define the prompt template
 def apply_prompt_template(prompt):
     s = (
-            '<|system|>\nA chat between a curious user and an artificial intelligence assistant. '
-            "The assistant gives helpful, detailed, and polite answers to the user's questions.<|end|>\n"
-            f'<|user|>\n<image>\n{prompt}<|end|>\n<|assistant|>\n'
-        )
+        '<|system|>\nA chat between a curious user and an artificial intelligence assistant. '
+        "The assistant gives helpful, detailed, and polite answers to the user's questions.<|end|>\n"
+        f'<|user|>\n<image>\n{prompt}<|end|>\n<|assistant|>\n'
+    )
     return s 
+
 class EosListStoppingCriteria(StoppingCriteria):
-    def __init__(self, eos_sequence = [32007]):
+    def __init__(self, eos_sequence=[32007]):
         self.eos_sequence = eos_sequence
 
     def __call__(self, input_ids: torch.LongTensor, scores: torch.FloatTensor, **kwargs) -> bool:
-        last_ids = input_ids[:,-len(self.eos_sequence):].tolist()
+        last_ids = input_ids[:, -len(self.eos_sequence):].tolist()
         return self.eos_sequence in last_ids      
 
-# load models
+# Load models
 model_name_or_path = "./xgen-mm-phi3-mini-instruct-r-v1"
 model = AutoModelForVision2Seq.from_pretrained(model_name_or_path, trust_remote_code=True)
 tokenizer = AutoTokenizer.from_pretrained(model_name_or_path, trust_remote_code=True, use_fast=False, legacy=False)
 image_processor = AutoImageProcessor.from_pretrained(model_name_or_path, trust_remote_code=True)
 tokenizer = model.update_special_tokens(tokenizer)
 
-# craft a test sample
-img_url = 'https://storage.googleapis.com/sfr-vision-language-research/BLIP/demo.jpg'
-raw_image = Image.open(requests.get(img_url, stream=True).raw).convert('RGB')
-query = "how many dogs are in the picture?"
+# Craft a test sample
+image_path = './assets/image.png'  # Change the image source to a local image
+raw_image = Image.open(image_path).convert('RGB')
+query = "Is there a banner in this image? If so, what color is it and what does it say? Ensure to include all letters and"
 
 model = model.cuda()
 inputs = image_processor([raw_image], return_tensors="pt", image_aspect_ratio='anyres')
@@ -44,4 +44,3 @@ generated_text = model.generate(**inputs, image_size=[raw_image.size],
                                 )
 prediction = tokenizer.decode(generated_text[0], skip_special_tokens=True).split("<|end|>")[0]
 print("==> prediction: ", prediction)
-# output: ==> prediction: There is one dog in the picture.
