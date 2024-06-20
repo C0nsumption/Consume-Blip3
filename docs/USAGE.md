@@ -1,10 +1,10 @@
-### Usage Guide
+# Usage Guide
 
 This guide provides detailed instructions on how to use the BLIP3 autocaptioning tools.
 
 ## Running the Script
 
-You can run the script on a single image or a directory containing multiple images.
+You can run the script in three different modes: analyzing a single image or a directory of images, interacting with the model via a chat interface, or using a FastAPI application for HTTP requests.
 
 ### Single Image
 
@@ -30,6 +30,38 @@ To save the AI's responses to text files, add the `--save_response` flag:
 python src/analyze.py path/to/image.jpg "Describe the image" --save_response
 ```
 
+## Using the Chat Interface
+
+You can interact with the BLIP3 model via a CLI chat interface.
+
+### Starting the Chat Interface
+
+1. **Navigate to the Project Directory:**
+    ```sh
+    cd path/to/your/project
+    ```
+
+2. **Run the Chat Interface:**
+    ```sh
+    python src/chat.py
+    ```
+
+3. **Interacting with the Model:**
+
+   - Provide the path to an image when prompted.
+   - Enter your query to describe or ask questions about the image.
+   - Type `clear` to clear the current session and provide a new image.
+
+### Example Chat Session
+
+```
+Image path >>>>> path/to/image.jpg
+Human: Describe the image
+Assistant: The image shows a beautiful sunset over a mountain range with vibrant colors.
+Human: What is the dominant color in the image?
+Assistant: The dominant color in the image is orange, highlighting the sunset.
+```
+
 ## Using the FastAPI Application
 
 You can also use the BLIP3 autocaptioning tools via a FastAPI application. This allows you to interact with the tools through HTTP requests.
@@ -46,7 +78,6 @@ You can also use the BLIP3 autocaptioning tools via a FastAPI application. This 
     python src/app.py
     ```
 
-
 The FastAPI application will start and be available at `http://127.0.0.1:8000`.
 
 ### Analyzing an Image
@@ -60,7 +91,6 @@ curl -X POST "http://127.0.0.1:8000/analyze" \
 -F "file=@path/to/your/image.jpg" \
 -F "query=Describe the image" \
 -F "max_new_tokens=768" \
--F "num_beams=1" \
 -F "save_response=false"
 ```
 
@@ -73,7 +103,6 @@ curl -X POST "http://127.0.0.1:8000/analyze" \
 -F "file=@path/to/your/image.jpg" \
 -F "query=Describe the image" \
 -F "max_new_tokens=768" \
--F "num_beams=1" \
 -F "save_response=true"
 ```
 

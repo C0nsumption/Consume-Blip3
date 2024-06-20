@@ -1,3 +1,7 @@
+```sh
+python src/analyze.py path/to/directory "Describe the image"
+```
+
 <p align="center">
   <img src="assets/image.png" alt="Consume-Blip3 Logo" width="500"/>
 </p>
@@ -5,6 +9,15 @@
 # BLIP3 Autocaptioning Tools
 
 Welcome to this XGEN-MM(BLIP3) Autocaptioning Tools repository! This project sets up tools for autocaptioning using state-of-the-art models. 
+
+<center>
+
+✅ Chat Mode &emsp;&emsp;&emsp;
+✅ Caption Mode &emsp;&emsp;&emsp;
+✅ FastAPI Application 
+
+</center>
+
 
 ## Table of Contents
 
