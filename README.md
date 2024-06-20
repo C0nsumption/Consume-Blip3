@@ -10,13 +10,13 @@ python src/analyze.py path/to/directory "Describe the image"
 
 Welcome to this XGEN-MM(BLIP3) Autocaptioning Tools repository! This project sets up tools for autocaptioning using state-of-the-art models. 
 
-<center>
-
+<div align="center">
+<p>
 ✅ Chat Mode &emsp;&emsp;&emsp;
 ✅ Caption Mode &emsp;&emsp;&emsp;
 ✅ FastAPI Application 
-
-</center>
+</p>
+</div>
 
 
 ## Table of Contents
